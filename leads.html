@@ -10,7 +10,8 @@
 :root{
   --paper:#F7F4EE;--paper-deep:#EFE9DC;--ink:#2E2A27;--ink-soft:#5C5650;
   --rule:#DCD5C7;--red:#B01F24;--red-deep:#8E191D;
-  --green:#33503F;--green-deep:#1E3326;--gold:#B6883B;
+--green:#33503F;--green-deep:#1E3326;--gold:#B6883B;--gold-deep:#7a5a00;
+  --steel:#4A6785;
   --radius:9px;
 }
 *{box-sizing:border-box;}
@@ -757,6 +758,7 @@ const SOURCE_COLORS = {
   Rightmove:'#185FA5', Zoopla:'#0F6E56', Website:'#854F0B',
   OnTheMarket:'#6B2D8B', Direct:'#2E2A27', Internal:'#4A6785'
 };
+const PCOLORS = {russell:'#0C447C',henry:'#633806',vladyslava:'#27500A',lewis:'#4A6785'};
 const MONTHS_SHORT = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
 function renderMonthlyTrends(){
@@ -1399,13 +1401,14 @@ document.querySelectorAll('.neg-tab').forEach(btn=>{
   });
 });
 
+document.getElementById('check-inbox-btn').addEventListener('click', checkInbox);
+
 (async function init(){
   await load();
   const storedAutoAssign = await storageGet('leads:autoAssign');
   if(storedAutoAssign !== null) autoAssign = storedAutoAssign;
   renderAutoAssignToggle();
-  renderAll();
-  renderMonthChart();
+renderAll();
 })();
 </script>
 </body>
